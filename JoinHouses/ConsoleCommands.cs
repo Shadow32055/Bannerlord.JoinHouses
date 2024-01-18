@@ -4,11 +4,6 @@ using TaleWorlds.Library;
 
 namespace JoinHouses {
     public class ConsoleCommands {
-        [CommandLineFunctionality.CommandLineArgumentFunction("reloadconfig", "joinhouses")]
-        private static string CommandReloadConfig(List<string> args) {
-            SubModule.Config.LoadConfig();
-            return "Config reloaded!";
-        }
 
         [CommandLineFunctionality.CommandLineArgumentFunction("debug_marry", "joinhouses")]
         private static string DebugCommandMarry(List<string> args) {

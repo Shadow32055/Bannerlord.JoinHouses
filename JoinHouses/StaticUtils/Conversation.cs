@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TaleWorlds.CampaignSystem;
+﻿using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
 
 namespace JoinHouses.StaticUtils {
@@ -28,7 +23,7 @@ namespace JoinHouses.StaticUtils {
         public static bool JoinHousesAccepted() {
             Hero otherHero = Hero.OneToOneConversationHero;
 
-            float relationNeeded = (float)SubModule.Config.GetValueDouble("baseRelationNeeded");
+            float relationNeeded = (float)JoinHouses.Settings.RelationValue;
 
             if (Hero.MainHero.IsFactionLeader) relationNeeded += -40f;
             if (otherHero.IsFactionLeader) relationNeeded += 50f;

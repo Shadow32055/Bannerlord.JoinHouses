@@ -13,7 +13,7 @@ namespace JoinHouses.Patches {
             if ((hero.Father == null || hero.Mother == null) && hero.Clan == Hero.MainHero.Clan) {
                 TextObject textObject = new TextObject("{=t4KwQOB7}{HERO.NAME} is now of age.");
                 textObject.SetCharacterProperties("HERO", hero.CharacterObject);
-                Campaign.Current.CampaignInformationManager.NewMapNoticeAdded(new HeirComeOfAgeMapNotification(hero, hero.Clan.Leader, textObject));
+                Campaign.Current.CampaignInformationManager.NewMapNoticeAdded(new HeirComeOfAgeMapNotification(hero, hero.Clan.Leader, textObject, CampaignTime.Now));
 
                 return false;
             }
