@@ -31,7 +31,7 @@
 
   <ItemGroup>
     <Reference Include="BetterCore">
-      <HintPath>..\..\Bannerlord.BetterCore\BetterCore\bin\x64\Debug\net472\BetterCore.dll</HintPath>
+      <HintPath>..\..\Bannerlord.BetterCore\BetterCore\bin\x64\Debug\netstandard2.0\BetterCore.dll</HintPath>
     </Reference>
   </ItemGroup>
 
