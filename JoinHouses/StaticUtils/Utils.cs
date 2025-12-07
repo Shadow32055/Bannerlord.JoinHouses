@@ -1,9 +1,6 @@
 ﻿using HarmonyLib;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.CampaignSystem.Settlements;
@@ -43,8 +40,7 @@ namespace JoinHouses.StaticUtils {
                     if (otherKingdom.RulingClan == otherClan)
                         otherKingdom.RulingClan = playerClan;
                     playerClan.Kingdom = otherKingdom;
-                }
-                else if (playerKingdom != null && playerKingdom.RulingClan != playerClan && otherKingdom.RulingClan == otherClan) {
+                } else if (playerKingdom != null && playerKingdom.RulingClan != playerClan && otherKingdom.RulingClan == otherClan) {
                     otherKingdom.RulingClan = playerClan;
                     playerClan.Kingdom = otherKingdom;
                 }
@@ -74,7 +70,7 @@ namespace JoinHouses.StaticUtils {
 
                 List<Clan> clansToTransfer = otherKingdom.Clans.ToList();
                 foreach (Clan clan in clansToTransfer)
-                    ChangeKingdomAction.ApplyByJoinToKingdom(clan, playerKingdom, false);
+                    ChangeKingdomAction.ApplyByJoinToKingdom(clan, playerKingdom, default, false);
 
                 // Notify
                 PrintToMessages(otherKingdom.Name + " has become one with " + playerKingdom.Name + "!", 102, 255, 102);
