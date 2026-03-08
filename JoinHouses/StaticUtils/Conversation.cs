@@ -4,20 +4,20 @@ using TaleWorlds.CampaignSystem.Actions;
 namespace JoinHouses.StaticUtils {
     public static class Conversation {
         public static bool JoinHousesAllowed() {
-            Hero otherHero = Hero.OneToOneConversationHero;
+           Hero target = Hero.OneToOneConversationHero;
+           bool flag = Hero.MainHero.Spouse != null || target.Spouse != null;
 
-            // If either hero is already married
-            if (Hero.MainHero.Spouse != null || otherHero.Spouse != null) return false;
+           if (flag)
+           {
+               return false;
+            }
+            else
+            {
+               Clan clan = target.Clan;
+               bool flag2 = clan == null || !clan.IsNoble || clan.Leader != target;
+               return !flag2;
+            }
 
-            // If same gender
-            if (Hero.MainHero.IsFemale == otherHero.IsFemale) return false;
-
-            Clan otherClan = otherHero.Clan;
-
-            // if other clan is not existent, not noble, or if other hero is not the leader
-            if (otherClan == null || !otherClan.IsNoble || otherClan.Leader != otherHero) return false;
-
-            return true;
         }
 
         public static bool JoinHousesAccepted() {
